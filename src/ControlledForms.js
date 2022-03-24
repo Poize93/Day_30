@@ -1,26 +1,30 @@
 import React, { useSet } from 'react';
 
+var error;
 function handleSubmit(e) {
   e.preventDefault();
-  console.log(a.length);
-  if (a.length < 1) {
-    var error = 'Required Field';
-  } else {
-    error = '';
-  }
+  console.log(e.target[0].value, e.target[0].name);
+  console.log(e.target[1].value, e.target[1].name);
+
+
 }
 
 function handleChange(e) {
+ console.log(e.target.name, e.target.value, 'in handleChange');
 
-  console.log(e.target.name ,e.target.value);
-  var result = e.target.value;
-  handleSubmit(result);
+  if (e.target.value.length < 1) {
+    error = 'All Fields are Required';
+  } else {
+    error = '';
+  }
+  // }
+  const out = (document.querySelector('.error').innerText = error);
 }
 
 function form() {
   return (
     <>
-      <form onSubmit={(e) => handleChange(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <h3>User Form using Function</h3>
         <label>First Name</label> &nbsp;
         <input
@@ -28,11 +32,13 @@ function form() {
           name="firstName"
           onChange={(e) => handleChange(e)}
         ></input>
-        <h6>A</h6>
+        <br />
+       
         <br />
         <label>Last Name</label> &nbsp;
         <input type="text" name="lastName" onChange={(e) => handleChange(e)} />
         <br />
+       
         <br />
         <label>Email</label> &nbsp;
         <input type="text" name="email" onChange={(e) => handleChange(e)} />
@@ -63,7 +69,9 @@ function form() {
         </select>{' '}
         <br /> <br />
         <button type="submit">Submit</button> &nbsp;
-        <button type="button">Reset</button>
+        <button type="button">Reset</button> <br/>
+
+        <span style={{ color: 'red' }} className="error"></span>
       </form>
     </>
   );
