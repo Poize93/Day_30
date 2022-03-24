@@ -1,6 +1,7 @@
 import React, { useSet } from 'react';
 
-function handleSubmit(a) {
+function handleSubmit(e) {
+  e.preventDefault();
   console.log(a.length);
   if (a.length < 1) {
     var error = 'Required Field';
@@ -10,8 +11,8 @@ function handleSubmit(a) {
 }
 
 function handleChange(e) {
-  e.preventDefault();
-  //console.log(e.target.name ,e.target.value);
+
+  console.log(e.target.name ,e.target.value);
   var result = e.target.value;
   handleSubmit(result);
 }
