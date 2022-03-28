@@ -7,12 +7,13 @@ function handleSubmit(e) {
 
 function errors(value, name) {
   document.querySelector('.name').innerText = '';
+
   document.querySelector('.last').innerText = '';
+
   document.querySelector('.email').innerText = '';
 
-  //console.log(name, value, 'In error function');
+  console.log(name, value, 'In error function');
   if (value === '') {
-    error = 'Required';
     if (name === 'firstName') {
       document.querySelector('.name').innerText = 'First Name  Required';
     }
