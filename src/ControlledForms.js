@@ -3,21 +3,42 @@ import React, { useSet } from 'react';
 var error;
 function handleSubmit(e) {
   e.preventDefault();
-  console.log(e.target[0].value, e.target[0].name);
-  console.log(e.target[1].value, e.target[1].name);
-  console.log(e.target[2].value, e.target[2].name);
+
+  // console.log(e.target[0].value, e.target[0].name);
+  // console.log(e.target[1].value, e.target[1].name);
+  // console.log(e.target[2].value, e.target[2].name);
+  // console.log(e.target[3].value, e.target[3].name);
+
+  // errors(
+  //   e.target[0].value,
+  //   e.target[1].value,
+  //   e.target[2].value,
+  //   e.target[3].value
+  // );
+}
+var error_name;
+function errors(value, name) {
+  console.log(name, value, 'In error function');
+  if (value === '') {
+    // const [error_name, setError] = useSet('Required');
+    console.log(`${name} error`);
+  }
+  // else if (last === '') {
+  //   error = 'Required';
+  //   console.log('last error');
+  // } else if (email === '') {
+  //   error = 'Required';
+  //   console.log('email error');
+  // } else if (gender === '') {
+  //   error = 'Required';
+  //   console.log('gender error');
+  // }
+  return error_name;
 }
 
 function handleChange(e) {
-  console.log(e.target.name, e.target.value, 'in handleChange');
-
-  if (e.target.value.length < 1) {
-    error = 'All Fields are Required';
-  } else {
-    error = '';
-  }
-  // }
-  const out = (document.querySelector('.error').innerText = error);
+  console.log(e.target.value, e.target.name);
+  errors(e.target.value, e.target.name);
 }
 
 function form() {
@@ -32,6 +53,7 @@ function form() {
           onChange={(e) => handleChange(e)}
         ></input>
         <br />
+        <span>error_name</span>
         <br />
         <label>Last Name</label> &nbsp;
         <input type="text" name="lastName" onChange={(e) => handleChange(e)} />
