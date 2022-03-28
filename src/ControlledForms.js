@@ -3,37 +3,29 @@ import React, { useSet } from 'react';
 var error;
 function handleSubmit(e) {
   e.preventDefault();
-
-  // console.log(e.target[0].value, e.target[0].name);
-  // console.log(e.target[1].value, e.target[1].name);
-  // console.log(e.target[2].value, e.target[2].name);
-  // console.log(e.target[3].value, e.target[3].name);
-
-  // errors(
-  //   e.target[0].value,
-  //   e.target[1].value,
-  //   e.target[2].value,
-  //   e.target[3].value
-  // );
 }
 
 function errors(value, name) {
+  document.querySelector('.name').innerText = '';
+  document.querySelector('.last').innerText = '';
+  document.querySelector('.email').innerText = '';
+
   console.log(name, value, 'In error function');
   if (value === '') {
     error = 'Required';
-    console.log(error, 'printing error for checking');
-    console.log(`${name} error`);
+    if (name === 'firstName') {
+      document.querySelector('.name').innerText = 'First Name  Required';
+    }
+
+    if (name === 'lastName') {
+      document.querySelector('.last').innerText = 'Last Name Required';
+    }
+    if (name === 'email') {
+      document.querySelector('.email').innerText = 'EmailId Required';
+    }
+    console.log(`${name} checking value of error`);
   }
-  // else if (last === '') {
-  //   error = 'Required';
-  //   console.log('last error');
-  // } else if (email === '') {
-  //   error = 'Required';
-  //   console.log('email error');
-  // } else if (gender === '') {
-  //   error = 'Required';
-  //   console.log('gender error');
-  // }
+  return error;
 }
 
 function handleChange(e) {
@@ -53,15 +45,17 @@ function form() {
           onChange={(e) => handleChange(e)}
         ></input>
         <br />
-        <span>{error}</span>
+        <span className="name"></span>
         <br />
         <label>Last Name</label> &nbsp;
         <input type="text" name="lastName" onChange={(e) => handleChange(e)} />
         <br />
+        <span className="last"></span>
         <br />
         <label>Email</label> &nbsp;
         <input type="text" name="email" onChange={(e) => handleChange(e)} />
         <br />
+        <span className="email"></span>
         <br />
         <label required>Gender</label> &nbsp;
         <input
@@ -89,7 +83,6 @@ function form() {
         <br /> <br />
         <button type="submit">Submit</button> &nbsp;
         <button type="button">Reset</button> <br />
-        <span style={{ color: 'red' }} className="error"></span>
       </form>
     </>
   );
