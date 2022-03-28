@@ -5,12 +5,11 @@ function handleSubmit(e) {
   e.preventDefault();
   console.log(e.target[0].value, e.target[0].name);
   console.log(e.target[1].value, e.target[1].name);
-
-
+  console.log(e.target[2].value, e.target[2].name);
 }
 
 function handleChange(e) {
- console.log(e.target.name, e.target.value, 'in handleChange');
+  console.log(e.target.name, e.target.value, 'in handleChange');
 
   if (e.target.value.length < 1) {
     error = 'All Fields are Required';
@@ -33,12 +32,10 @@ function form() {
           onChange={(e) => handleChange(e)}
         ></input>
         <br />
-       
         <br />
         <label>Last Name</label> &nbsp;
         <input type="text" name="lastName" onChange={(e) => handleChange(e)} />
         <br />
-       
         <br />
         <label>Email</label> &nbsp;
         <input type="text" name="email" onChange={(e) => handleChange(e)} />
@@ -69,8 +66,7 @@ function form() {
         </select>{' '}
         <br /> <br />
         <button type="submit">Submit</button> &nbsp;
-        <button type="button">Reset</button> <br/>
-
+        <button type="button">Reset</button> <br />
         <span style={{ color: 'red' }} className="error"></span>
       </form>
     </>
