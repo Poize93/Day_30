@@ -16,11 +16,12 @@ function handleSubmit(e) {
   //   e.target[3].value
   // );
 }
-var error_name;
+
 function errors(value, name) {
   console.log(name, value, 'In error function');
   if (value === '') {
-    // const [error_name, setError] = useSet('Required');
+    error = 'Required';
+    console.log(error, 'printing error for checking');
     console.log(`${name} error`);
   }
   // else if (last === '') {
@@ -33,7 +34,6 @@ function errors(value, name) {
   //   error = 'Required';
   //   console.log('gender error');
   // }
-  return error_name;
 }
 
 function handleChange(e) {
@@ -53,7 +53,7 @@ function form() {
           onChange={(e) => handleChange(e)}
         ></input>
         <br />
-        <span>error_name</span>
+        <span>{error}</span>
         <br />
         <label>Last Name</label> &nbsp;
         <input type="text" name="lastName" onChange={(e) => handleChange(e)} />
