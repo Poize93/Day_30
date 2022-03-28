@@ -12,7 +12,7 @@ function errors(value, name) {
 
   document.querySelector('.email').innerText = '';
 
-  console.log(name, value, 'In error function');
+  // console.log(name, value, 'In error function');
   if (value === '') {
     if (name === 'firstName') {
       document.querySelector('.name').innerText = 'First Name  Required';
