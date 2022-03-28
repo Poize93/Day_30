@@ -10,7 +10,7 @@ function errors(value, name) {
   document.querySelector('.last').innerText = '';
   document.querySelector('.email').innerText = '';
 
-  console.log(name, value, 'In error function');
+  //console.log(name, value, 'In error function');
   if (value === '') {
     error = 'Required';
     if (name === 'firstName') {
@@ -29,7 +29,7 @@ function errors(value, name) {
 }
 
 function handleChange(e) {
-  console.log(e.target.value, e.target.name);
+  //console.log(e.target.value, e.target.name);
   errors(e.target.value, e.target.name);
 }
 
@@ -45,17 +45,17 @@ function form() {
           onChange={(e) => handleChange(e)}
         ></input>
         <br />
-        <span className="name"></span>
+        <span style={{ color: 'red' }} className="name"></span>
         <br />
         <label>Last Name</label> &nbsp;
         <input type="text" name="lastName" onChange={(e) => handleChange(e)} />
         <br />
-        <span className="last"></span>
+        <span style={{ color: 'red' }} className="last"></span>
         <br />
         <label>Email</label> &nbsp;
         <input type="text" name="email" onChange={(e) => handleChange(e)} />
         <br />
-        <span className="email"></span>
+        <span style={{ color: 'red' }} className="email"></span>
         <br />
         <label required>Gender</label> &nbsp;
         <input
