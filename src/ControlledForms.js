@@ -6,11 +6,18 @@ function handleSubmit(e) {
 }
 
 function errors(value, name) {
-  document.querySelector('.name').innerText = '';
+  //console.log(value, name, 'checking my error console');
+  if (name == 'firstName') {
+    document.querySelector('.name').innerText = '';
+  }
 
-  document.querySelector('.last').innerText = '';
+  if (name == 'lastName') {
+    document.querySelector('.last').innerText = '';
+  }
 
-  document.querySelector('.email').innerText = '';
+  if (name === 'email') {
+    document.querySelector('.email').innerText = '';
+  }
 
   // console.log(name, value, 'In error function');
   if (value === '') {
